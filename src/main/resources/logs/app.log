@@ -1,0 +1,16 @@
+2019-28-02 12:28:41.209 [main] INFO   - Opened site
+2019-28-02 12:28:51.221 [main] INFO   - Click on Login Link
+2019-29-02 12:29:07.801 [main] INFO   - Fill data for auth
+2019-29-02 12:29:07.859 [main] INFO   - Move to Women category
+2019-29-02 12:29:26.692 [main] INFO   - Click on evening Dresses
+2019-29-02 12:29:39.195 [main] INFO   - Open Product in new tab
+2019-29-02 12:29:39.266 [main] INFO   - Switch to pink color
+2019-29-02 12:29:39.376 [main] INFO   - Select L size
+2019-29-02 12:29:46.601 [main] INFO   - Click Add to cart button
+2019-29-02 12:29:46.736 [main] INFO   - Click Continue shopping button
+2019-29-02 12:29:46.794 [main] INFO   - Move to Cart icon
+2019-29-02 12:29:47.397 [main] INFO   - Check Size and Color
+2019-29-02 12:29:47.480 [main] INFO   - Remove product from cart
+2019-29-02 12:29:55.892 [main] INFO   - Check if cart is empty
+2019-29-02 12:29:55.924 [main] INFO   - Close current tab
+2019-29-02 12:29:55.943 [main] INFO   - Print Cookies

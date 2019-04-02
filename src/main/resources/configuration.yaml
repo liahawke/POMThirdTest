@@ -1,0 +1,9 @@
+# Data for testing
+url: http://automationpractice.com/index.php
+email: liaautomationtest@mailinator.com
+password: qwerty1234#
+test:
+  testInside: valueInside
+anotherTestKeys:
+  - value1
+  - value2
