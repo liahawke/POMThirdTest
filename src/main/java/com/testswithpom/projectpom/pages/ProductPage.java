@@ -1,7 +1,6 @@
 package com.testswithpom.projectpom.pages;
 
 import com.testswithpom.projectpom.base.BaseClass;
-import com.testswithpom.projectpom.base.ClothesCategories;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -9,9 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 public class ProductPage extends AbstractPage {
-
-    @FindBy(xpath = "//div[@class='breadcrumb clearfix']")
-    private WebElement breadCrums;
 
     @FindBy(xpath = "//*[@id='add_to_cart']/button/span")
     private WebElement addToCardBtn;
@@ -41,34 +37,6 @@ public class ProductPage extends AbstractPage {
         testClass.waitTillElementIsVisible(divPage);
     }
 
-    /**
-     * Parse Expected Breadcrumbs
-     *
-     * @return String with expected Breadcrumbs
-     */
-    public String parseExpectedBreadcrumbs(ClothesCategories category) {
-        String expectedBreadCrumbs =
-                "> "
-                        + category.getGeneralName()
-                        + ">"
-                        + category.getCategoryName()
-                        + ">"
-                        + category.getSubcategoryName()
-                        + ">"
-                        + productName.getText();
-        return expectedBreadCrumbs;
-    }
-
-    /**
-     * Check is breadcrumbs is correct
-     *
-     * @param expectedBreadCrumbs
-     */
-    public void checkBreadcrumbs(String expectedBreadCrumbs) {
-        testClass.waitTillElementIsVisible(breadCrums);
-        Assert.assertEquals("Breadcrum is different!", expectedBreadCrumbs, breadCrums.getText());
-    }
-
     /** Click on Add product button */
     public void clickAddBtn() {
         testClass.waitTillElementIsVisible(addToCardBtn);
@@ -82,6 +50,7 @@ public class ProductPage extends AbstractPage {
      * @param color
      */
     public void chooseColor(String color) {
+
         testClass.getDriver().findElement(By.xpath("//a[@name='" + color + "']")).click();
     }
 
@@ -95,11 +64,7 @@ public class ProductPage extends AbstractPage {
         dropdownSize.selectByVisibleText(size);
     }
 
-    /**
-     * Proceed to checkout page
-     *
-     * @return CheckoutPage
-     */
+    /** Click continue shopping button */
     public void clickContinueBtn() {
         testClass.waitTillElementIsVisible(btnContinue);
         btnContinue.click();

@@ -1,5 +1,7 @@
 package com.testswithpom.projectpom.test;
 
+import static com.testswithpom.projectpom.base.ProductFeatures.EVENING_DRESS;
+
 import com.testswithpom.projectpom.base.BaseClass;
 import com.testswithpom.projectpom.pages.*;
 import org.junit.Test;
@@ -22,7 +24,7 @@ public class AddToCard extends BaseClass {
         log("Fill data for auth");
 
         // Move to Women category
-        accountPage.moveToSomeElement("//a[@title='Women']");
+        accountPage.moveToCategory();
         log("Move to Women category");
 
         // Click on evening Dresses
@@ -34,11 +36,11 @@ public class AddToCard extends BaseClass {
         log("Open Product in new tab");
 
         // Switch to pink color
-        productPage.chooseColor(DRESS_COLOR);
+        productPage.chooseColor(EVENING_DRESS.getProductColor());
         log("Switch to pink color");
 
         // Switch to L size
-        productPage.chooseSize(DRESS_SIZE);
+        productPage.chooseSize(EVENING_DRESS.getProductSize());
         log("Select L size");
 
         // Click Add to cart button
@@ -50,11 +52,12 @@ public class AddToCard extends BaseClass {
         log("Click Continue shopping button");
 
         // Move to Cart icon
-        productPage.moveToSomeElement("//a[@title='View my shopping cart']");
+        productPage.moveToCart();
         log("Move to Cart icon");
 
         // Check Size and Color
-        productPage.checkColorAndPrice(DRESS_SIZE, DRESS_COLOR);
+        productPage.checkColorAndPrice(
+                EVENING_DRESS.getProductSize(), EVENING_DRESS.getProductColor());
         log("Check Size and Color");
 
         // Remove product from cart

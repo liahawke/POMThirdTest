@@ -1,10 +1,8 @@
 package com.testswithpom.projectpom.pages;
 
 import com.testswithpom.projectpom.base.BaseClass;
-import com.testswithpom.projectpom.base.ClothesCategories;
 import java.util.Set;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -32,14 +30,17 @@ public abstract class AbstractPage {
     @FindBy(xpath = "//div[@class='shopping_cart']//span[contains(text(), 'empty')]")
     private WebElement emptyWordLink;
 
+    @FindBy(xpath = "//a[@title='Women']")
+    private WebElement categoryTitle;
+
+    @FindBy(xpath = "//a[@title='View my shopping cart']")
+    private WebElement cartLink;
+
     // Instances of BaseTest
     protected BaseClass testClass;
 
     // Parent window
     private static String actualWindow;
-
-    // Instance of ClothesCategories
-    ClothesCategories clothes;
 
     /**
      * Constructor
@@ -70,14 +71,19 @@ public abstract class AbstractPage {
         return new ListingPage(testClass);
     }
 
-    /** Move to element */
-    public void moveToSomeElement(String xpathElement) {
-        WebElement element = testClass.getDriver().findElement(By.xpath(xpathElement));
-        testClass.waitTillElementIsVisible(element);
+    /** Move to category */
+    public void moveToCategory() {
+        testClass.waitTillElementIsVisible(categoryTitle);
         Actions actions = new Actions(testClass.getDriver());
-        actions.moveToElement(element).build().perform();
+        actions.moveToElement(categoryTitle).build().perform();
     }
 
+    /** Move to cart */
+    public void moveToCart() {
+        testClass.waitTillElementIsVisible(cartLink);
+        Actions actions = new Actions(testClass.getDriver());
+        actions.moveToElement(cartLink).build().perform();
+    }
     /**
      * Open link in new tab
      *

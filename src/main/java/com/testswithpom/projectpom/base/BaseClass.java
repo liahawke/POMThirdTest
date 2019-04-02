@@ -21,8 +21,6 @@ public class BaseClass {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    protected ClothesCategories categories;
-
     // Logger
     private Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
 
@@ -31,10 +29,6 @@ public class BaseClass {
 
     @FindBy(xpath = "//*[@id='layered_ajax_loader']/p")
     private WebElement loader;
-
-    protected final String DRESS_SIZE = "L";
-
-    protected final String DRESS_COLOR = "Pink";
 
     /** Constructor */
     public BaseClass() {
